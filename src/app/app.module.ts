@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { ExclusaoViagemComponent } from './exclusao-viagem/exclusao-viagem.component';
 import { DetalhesViagemComponent } from './detalhes-viagem/detalhes-viagem.component';
 import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

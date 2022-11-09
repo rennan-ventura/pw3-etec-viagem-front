@@ -1,3 +1,4 @@
+import { ViagemService } from './../services/viagem.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,17 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListagemViagemComponent implements OnInit {
 
-  
+
   viagens: Array<any> = [];
 
-  constructor() { }
+  constructor(private viagemService: ViagemService) { }
 
   ngOnInit() {
-    this.viagens = [
-      { "id": 1, "destino": "Acapulco", "tipo": "LAZER", "chegada": "2021-06-08", "saida": "2021-06-18", "orcamento": 4000, "pessoas": 4 },
-      { "id": 2, "destino": "Egito (Cairo)", "tipo": "LAZER", "chegada": "2021-06-20", "saida": "2021-06-28", "orcamento": 2900, "pessoas": 4 },
-      { "id": 3, "destino": "Nova Zelƒndia", "tipo": "LAZER", "chegada": "2021-09-04", "saida": "2021-10-11", "orcamento": 4900, "pessoas": 4 }];
+    return this.listarViagens()
 	}
+
+  listarViagens()
+  {
+    this.viagemService.listarTodas().subscribe(e => this.viagens = e);
+  }
 
 
 }
